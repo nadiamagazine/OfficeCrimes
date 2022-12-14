@@ -74,4 +74,14 @@ class CrimeDetailFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun updateUi(crime: Crime) {
+        binding.apply {
+            if (crimeTitle.text.toString() != crime.title) {
+                crimeTitle.setText(crime.title)
+            }
+            crimeDate.text = crime.date.toString()
+            crimeSolved.isChecked = crime.isSolved
+        }
+    }
 }
